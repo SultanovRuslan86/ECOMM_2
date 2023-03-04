@@ -1,0 +1,299 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'app/images/banner/op-1.jpeg' %}" class="d-block w-100" alt="banner image" width="200" height="500"/>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/images/banner/op-2.jpeg' %}" class="d-block w-100" alt="banner image" width="200" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/images/banner/op-3.jpeg' %}" class="d-block w-100" alt="banner image" width="200" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/images/banner/op-4.jpeg' %}" class="d-block w-100" alt="banner image" width="200" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/images/banner/goods.jpg' %}" class="d-block w-100" alt="banner image" width="100" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'app/images/banner/op-6.jpeg' %}" class="d-block w-100" alt="banner image" width="200" height="500">
+        </div>
+      </div>
+    </div>
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+  <div class="row bg-success text-center p-5 text-white border-bottom shadow">
+    <h1>Почему нужно выбирать именно нас ?</h1>
+    <small class="fs-5"> Сотрудничество с ТОО 'Tengri Service Group' - залог высокого сервиса,
+      своевременных поставок и выгодных цен! Наша продукция полностью сертифицирована, проверена и
+        соответствует всем стандартам качества.</small>
+  </div>
+</div>
+{% endblock information %}
+<br>
+{% block main-content %}
+    <br>
+    <div class="container">
+      <h2 class="text-center">Наша продукция</h2>
+      <br><br>
+      <div class="row container">
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'OP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-1.jpg.webp' %}"
+                    class="img-responsive" alt="">
+                    <p class="mlkpro">Огнетушители ОП (Порошковые)</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'OU' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-2.jpeg' %}"
+                    class="img-responsive" alt="">
+                    <p class="mlkpro">Огнетушители ОУ (углекислотные)</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'OV' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-3.jpeg' %}"
+                    class="img-responsive" alt="" height="205" width="320">
+                    <p class="mlkpro">Воздушно-пенные огнетушители (ОВП)</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'PSh' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-5.jpg' %}"
+                    class="img-responsive" alt="">
+                    <p class="mlkpro">Пожарные шкафы, люки, рамы для шкафов</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'ShP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-6.jpg' %}"
+                    class="img-responsive" alt="" height="225" width="320">
+                    <p class="mlkpro">Щиты пожарные, стенды</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'RP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-7.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Рукава пожарные</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'PT' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-8.jpg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Пожарно-техническое оснащение</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'PA' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-9.png' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Противопожарная арматура</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'SIZ' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-10.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Все виды СИЗ (средства индивидуальной защиты)</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'PO' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-14.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Перезарядка Огнетушителей ОП (порошковые)</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'YP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-13.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Ящики для песка</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'PK' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-11.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Пожарное обмундирование и комплектующие</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'KP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-12.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Клапаны пожарных кранов</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'GP' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-15.jpg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Генераторы пены средней кратности</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+              <div class="goodnesssec butermilk smbg">
+                <a href="{% url 'category' 'MS' %}">
+                  <div class="goodnessseccont text-center">
+                    <img src="{% static 'app/images/product/niz-16.jpeg' %}"
+                    class="img-responsive" alt="" height="223" width="320">
+                    <p class="mlkpro">Монтаж системы противопожарной сигнализации</p>
+                  </div>
+                </a>
+              </div>
+         </div>
+
+
+      </div>
+    </div>
+    </br></br>
+{% endblock main-content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

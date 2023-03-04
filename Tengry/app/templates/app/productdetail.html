@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main-content %}
+    <div class="container">
+        <div class="row flex justify-content-between">
+            <div class="img2 col-lg-5 mt-5">
+                <img src="{{product.product_image.url}}" class="image col-xs-6
+                col-sm-12 col-lg-12 mt-3 text-sm-center" height="400" width="500" alt="">
+            </div>
+            <div class="productdetail col-lg-5">
+                <h1 style="font-family: Georgia; font-size: 40px;">{{product.title}}</h1>
+                <h5>цена: {{product.selling_price}} тн. </h5><h7>при покупке более 5-ти штук цена составит: {{product.diskounted_price}} тн.</h7>
+<!--                <small class="text-decoration-line-through text-muted-->
+<!--                fs-5"><del>{{product.selling_price}} тн.</small></del>-->
+                <br><br><h4>Описание<h4>
+                <ul class="fs-5" style="font-family:Rajdhani; font-size: 25px;">
+                    <li>{{product.discription}}</li>
+<!--                    <li>Composition : {{product.composition}}</li>-->
+<!--                    <li>Use : {{product.prodapp}}</li>-->
+                </ul>
+
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name="prod_id" value={{product.id}} />
+                    <button type="submit" class="btn btn-primary shadow" style="font-size: 60%;">Добавить в корзину</button>
+                </form>
+
+                <a href="{% url 'showcart' %}" class="btn btn-warning shadow" style="font-size: 60%;">Купить сейчас</a>
+<!--                {% if wishlist %}-->
+<!--                    <a pid="{{product.id}}" class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4" style="width:30px;height:35px"><i class="fas fa-heart fa-lg"></i></a>-->
+<!--                {% else %}-->
+<!--                    <a pid="{{product.id}}" class="plus-wishlist btn btn-danger shadow px-5 py-2 ms-4" style="width:30px;height:35px"><i class="fas fa-heart fa-lg">❤</i></a>-->
+<!--                {% endif %}-->
+                {% if wishlist %}
+                    <a pid="{{product.id}}" class="minus-wishlist"><input id="toggle-heart" type="checkbox"/>
+                        <label for="toggle-heart" aria-label="like" style="margin-left: 15px;">❤</label></a>
+                {% else %}
+                    <a pid="{{product.id}}" class="plus-wishlist"><input id="toggle-heart" type="checkbox"/>
+                        <label for="toggle-heart" aria-label="like" style="margin-left: 15px;">❤</label></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}
+
+<!--<script src="{% static 'app/js/myscript.js' %}"></script>-->

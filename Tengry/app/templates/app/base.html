@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>Dairy Products | {% block title %}{% endblock title %}</title>
+
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'app/images/logo.png' %}" width="110" height="50" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Главная страница</a>
+                </li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Товары
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'category' 'OP' %}">Огнетушители ОП(Порошковые)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OU' %}">Огнетушители ОП(Углекислотные)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OV' %}">Воздушно-пенные огнетушители (ОВП)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PSh' %}">Пожарные шкафы, люки, рамы для шкафов</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'ShP' %}">Щиты пожарные, стенды</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'RP' %}">Рукава пожарные</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'YP' %}">Ящики для песка</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PT' %}">Пожарно-техническое оснащение</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PA' %}">Противопожарная арматура</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'SIZ' %}">Все виды СИЗ (средства индивидуальной защиты)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PK' %}">Пожарное обмундирование и комплектующие</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'KP' %}">Клапаны пожарных кранов</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'GP' %}">Генераторы пены средней кратности</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MS' %}">Монтаж системы противопожарной сигнализации</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PO' %}">Перезарядка Огнетушителей ОП (порошковые)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Другое</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="{% url 'about' %}">О нас</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="{% url 'contact' %}">Контакты</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="{% url 'showwishlist' %}" class="nav-link text-white"><span class="badge bg-danger"> {% if wishitem > 0 %} {{wishitem}} {% endif %} </span> Отзывы</a>
+                </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-2">
+                    <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge bg-danger"> {% if totalitem > 0 %} {{totalitem}} {% endif %} </span> Корзина</a>
+                </li>
+                </ul>
+              </ul>
+              <form class="d-flex" role="search" action="/search">
+                <input class="form-control me-2" type="search" placeholder="Поиск" name="search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Поиск</button>
+              </form>
+            </div>
+
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown mx-2" style="list-style: none;">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 80px;">{{request.user}}</a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">Мой кабинет</a></li>
+                        <li><a class="dropdown-item" href="{% url 'showcart' %}">Мои заказы</a></li>
+                        <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Изменить пароль</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
+                    </ul>
+                </li>
+
+                {% else %}
+                <li class="nav-item mx-2" style="list-style: none;">
+                    <a href="{% url 'login' %}" class="nav-link text-white">Логин</a>
+                </li>
+                <li class="nav-item mx-2" style="list-style: none;">
+                    <a href="{% url 'customerregistration' %}" class="nav-link text-white">Регистрация</a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </nav>
+
+        {% block banner-slider %}{% endblock banner-slider %}
+        {% block information %}{% endblock information %}
+        {% block main-content %}{% endblock main-content %}
+        {% block payment-gateway %} {% endblock payment-gateway %}
+
+        <br><br><br><br>
+        <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
+            Copyright : 2022 || Developed by Sultanov Ruslan
+        </footer>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+      <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'app/js/all.min.js' %}"></script>
+      <script src="{% static 'app/js/myscript.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
